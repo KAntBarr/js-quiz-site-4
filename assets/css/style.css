@@ -1,0 +1,31 @@
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-element {
+    margin: 25px 25px;
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.high-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.high-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.break {
+    width: 10px;
+}
