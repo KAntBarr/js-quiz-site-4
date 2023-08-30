@@ -7,13 +7,19 @@ header {
     margin: 25px 25px;
 }
 
-.main {
+.main, .quiz, .finished {
     display: flex;
     align-items: center;
     flex-direction: column;
     
 }
 
+.quiz, .finished {
+    display: none;
+}
+
+
+/* these are for highscores.html */
 .high-main {
     display: flex;
     flex-direction: column;
