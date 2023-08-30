@@ -16,13 +16,44 @@ const answers = [
 ["Answer 1e", "Answer 2e", "Answer 3e", "Answer 4e"]
 ]
 
+function loadFinished() {
+    quizScreen.style.display = 'none';
+    finishedScreen.style.display = "flex";
+}
+
+function loadQuestion() {
+    if(questionNum===questions.length) {
+        loadFinished();
+        return;
+    };
+    const firstButton = document.querySelector("#first-button");
+    const secondButton = document.querySelector("#second-button");
+    const thirdButton = document.querySelector("#third-button");
+    const fourthButton = document.querySelector("#fourth-button");
+    const question = document.querySelector("#question");
+
+    question.textContent = questions[questionNum];
+    firstButton.textContent = answers[questionNum][0];
+    secondButton.textContent = answers[questionNum][1];
+    thirdButton.textContent = answers[questionNum][2];
+    fourthButton.textContent = answers[questionNum][3];
+
+    questionNum++;
+}
+
 startButton.addEventListener("click", function() {
     // console.log("test");
     mainScreen.style.display = 'none';
     quizScreen.style.display = 'flex';
     timer.textContent = 3;
+    loadQuestion();
 })
 
 list.addEventListener("click", function(event) {
+    element = event.target;
+    
+    if(element.value) {}
+
+    loadQuestion();
 
 })
