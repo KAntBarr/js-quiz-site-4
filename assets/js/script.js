@@ -4,6 +4,9 @@ const finishedScreen = document.querySelector(".finished");
 const startButton = document.querySelector("#start-button");
 const list = document.querySelector("#answers");
 const timer = document.querySelector("#time");
+let timerInterval;
+const scoreEl = document.querySelector("#score");
+const submitEl = document.querySelector("#submit");
 
 const questions =  ["Test 1", "Test 2", "Test 3", "Test 4", "Test 5"];
 let questionNum = 0;
@@ -19,6 +22,11 @@ const answers = [
 function loadFinished() {
     quizScreen.style.display = 'none';
     finishedScreen.style.display = "flex";
+    clearInterval(timerInterval);
+
+    const score = timer.textContent;
+    scoreEl.textContent = score;
+
 }
 
 function loadQuestion() {
@@ -41,11 +49,25 @@ function loadQuestion() {
     questionNum++;
 }
 
+function startCountDown() {
+
+    timerInterval = setInterval(function() {
+        timer.textContent = timer.textContent - 1;
+    
+        if(timer.textContent == 0) {
+            // Stops execution of action at set interval
+            loadFinished();
+        }
+    
+    }, 1000);
+    return 25;
+}
+
 startButton.addEventListener("click", function() {
     // console.log("test");
     mainScreen.style.display = 'none';
     quizScreen.style.display = 'flex';
-    timer.textContent = 3;
+    timer.textContent = startCountDown();
     loadQuestion();
 })
 

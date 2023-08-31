@@ -18,6 +18,9 @@ header {
     display: none;
 }
 
+form * {
+    display: inline;
+}
 
 /* these are for highscores.html */
 .high-main {
