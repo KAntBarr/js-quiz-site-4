@@ -79,3 +79,17 @@ list.addEventListener("click", function(event) {
     loadQuestion();
 
 })
+
+submitEl.addEventListener("click", function(event) {
+    event.preventDefault();
+    let scoreList;
+    if (localStorage.getItem("score-list") === null) {
+        scoreList = [];
+    } else {
+        scoreList = JSON.parse(localStorage.getItem("score-list"));
+    }
+    const scoreString = `${document.querySelector("#input").value} - ${timer.textContent}`
+    scoreList.push(scoreString);
+    localStorage.setItem("score-list", JSON.stringify(scoreList));
+    window.location.href = "./highscores.html";
+})
