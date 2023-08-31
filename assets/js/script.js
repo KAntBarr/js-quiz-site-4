@@ -7,6 +7,8 @@ const timer = document.querySelector("#time");
 let timerInterval;
 const scoreEl = document.querySelector("#score");
 const submitEl = document.querySelector("#submit");
+const blackLine = document.querySelector("#line");
+const resultEl = document.querySelector("#result");
 
 const questions =  ["Test 1", "Test 2", "Test 3", "Test 4", "Test 5"];
 let questionNum = 0;
@@ -18,6 +20,14 @@ const answers = [
 ["Answer 1d", "Answer 2d", "Answer 3d", "Answer 4d"],
 ["Answer 1e", "Answer 2e", "Answer 3e", "Answer 4e"]
 ]
+
+const answerKey = {
+    "Test 1": "Answer 3a",
+    "Test 2": "Answer 2b",
+    "Test 3": "Answer 3c",
+    "Test 4": "Answer 1d",
+    "Test 5": "Answer 4e"
+}
 
 function loadFinished() {
     quizScreen.style.display = 'none';
