@@ -2,12 +2,13 @@ const mainScreen = document.querySelector(".main");
 const quizScreen = document.querySelector(".quiz");
 const finishedScreen = document.querySelector(".finished");
 const startButton = document.querySelector("#start-button");
-const list = document.querySelector("#answers");
+const options = document.querySelector("#answers");
 const timer = document.querySelector("#time");
 let timerInterval;
+let resultInterval;
 const scoreEl = document.querySelector("#score");
 const submitEl = document.querySelector("#submit");
-const blackLine = document.querySelector("#line");
+const popupEl = document.querySelector(".popup");
 const resultEl = document.querySelector("#result");
 
 const questions =  ["Test 1", "Test 2", "Test 3", "Test 4", "Test 5"];
@@ -30,6 +31,7 @@ const answerKey = {
 }
 
 function loadFinished() {
+    clearInterval(resultInterval);
     quizScreen.style.display = 'none';
     finishedScreen.style.display = "flex";
     clearInterval(timerInterval);
@@ -55,6 +57,7 @@ function loadQuestion() {
     secondButton.textContent = answers[questionNum][1];
     thirdButton.textContent = answers[questionNum][2];
     fourthButton.textContent = answers[questionNum][3];
+    // console.log(firstButton.textContent, "test");
 
     questionNum++;
 }
@@ -70,7 +73,7 @@ function startCountDown() {
         }
     
     }, 1000);
-    return 25;
+    return 50;
 }
 
 startButton.addEventListener("click", function() {
@@ -81,10 +84,30 @@ startButton.addEventListener("click", function() {
     loadQuestion();
 })
 
-list.addEventListener("click", function(event) {
+options.addEventListener("click", function(event) {
+    clearInterval(resultInterval);
     element = event.target;
-    
-    if(element.value) {}
+    console.log(element.textContent);
+    let result;
+    if(answerKey[questions[questionNum-1]]===element.textContent) {
+        result = "Correct!";
+    } else {
+        result = "Wrong!";
+        timer.textContent -= 5;
+    }
+    let clear = 0;
+    popupEl.style.display = 'flex';
+    resultEl.textContent = result;
+    resultInterval = setInterval(function() {
+        
+        if(clear) {
+            // Stops execution of action at set interval
+            popupEl.style.display = 'none';
+            clearInterval(resultInterval);
+            console.log("clear");
+        }
+        clear ++;
+    }, 3000);
 
     loadQuestion();
 

@@ -14,12 +14,27 @@ header {
     
 }
 
-.quiz, .finished {
+.quiz, .finished, .popup {
     display: none;
 }
 
 form * {
     display: inline;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#line {
+    width: 33vh;
+    height: 1px;
+}
+
+#result, #line {
+    display: block;
 }
 
 /* these are for highscores.html */
