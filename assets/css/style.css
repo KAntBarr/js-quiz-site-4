@@ -27,11 +27,18 @@ form * {
     flex-direction: column;
     justify-content: center;
 }
-
+/* 
 #line {
     width: 33vh;
     height: 1px;
-}
+} */
+
+#line::before {
+    content: "";
+    flex-grow: 1;
+    border-top: 1px solid black;
+    margin: 0 10px; /* Adjust margin as needed */
+  }
 
 #result, #line {
     display: block;

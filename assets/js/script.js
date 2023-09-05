@@ -67,7 +67,7 @@ function startCountDown() {
     timerInterval = setInterval(function() {
         timer.textContent = timer.textContent - 1;
     
-        if(timer.textContent == 0) {
+        if(timer.textContent <= 0) {
             // Stops execution of action at set interval
             loadFinished();
         }
@@ -97,6 +97,10 @@ options.addEventListener("click", function(event) {
     }
     let clear = 0;
     popupEl.style.display = 'flex';
+    popupEl.style.cssText = "  \
+    display: flex;\
+    align-items: center\
+    ";
     resultEl.textContent = result;
     resultInterval = setInterval(function() {
         
@@ -107,7 +111,7 @@ options.addEventListener("click", function(event) {
             console.log("clear");
         }
         clear ++;
-    }, 3000);
+    }, 900);
 
     loadQuestion();
 
