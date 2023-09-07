@@ -1,3 +1,8 @@
+:root {
+    --dark-main-color: rgba(88, 156, 88, 0.839); 
+    --light-main-color: rgb(167, 209, 167);
+}
+
 header {
     display: flex;
     justify-content: space-between;
@@ -8,20 +13,27 @@ header {
 }
 
 a {
-    color: rgba(88, 156, 88, 0.839);
+    color: var(--dark-main-color);
     text-decoration: none;
 }
 
 a:visited {
-    color: rgba(88, 156, 88, 0.839);
+    color: var(--dark-main-color);
     text-decoration: none;
 }
 
-.main, .quiz, .finished {
+.main, .quiz, .finished, #centered-main {
     display: flex;
     align-items: center;
-    flex-direction: column;
-    
+    flex-direction: column;   
+}
+
+#centered-main {
+    width: 500px;
+}
+
+#centered-main p {
+    text-align: center;
 }
 
 .quiz, .finished, .popup {
@@ -49,7 +61,7 @@ li {
 }
 
 button {
-    background-color: rgba(88, 156, 88, 0.839);
+    background-color: var(--dark-main-color);
     color: white;
     padding: 6px;
     border: 0;
@@ -57,7 +69,7 @@ button {
 }
 
 button:hover {
-    background-color: rgb(167, 209, 167);
+    background-color: var(--light-main-color);
 }
 
 li button {
@@ -101,4 +113,16 @@ form {
 
 button a, button a:visited {
     color: white;
+}
+
+ol {
+    padding: 0;
+}
+
+ol li {
+    background-color: var(--light-main-color);
+    color: white;
+    padding: 3px 10px;
+    width: 200px;
+    border: 1px solid black;
 }

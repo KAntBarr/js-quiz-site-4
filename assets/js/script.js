@@ -82,7 +82,7 @@ function startCountDown() {
         }
     
     }, 1000);
-    return 300;
+    return 25;
 }
 
 startButton.addEventListener("click", function() {
