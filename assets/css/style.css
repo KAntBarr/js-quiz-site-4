@@ -7,6 +7,16 @@ header {
     margin: 25px 25px;
 }
 
+a {
+    color: rgba(88, 156, 88, 0.839);
+    text-decoration: none;
+}
+
+a:visited {
+    color: rgba(88, 156, 88, 0.839);
+    text-decoration: none;
+}
+
 .main, .quiz, .finished {
     display: flex;
     align-items: center;
@@ -27,21 +37,44 @@ form * {
     flex-direction: column;
     justify-content: center;
 }
-/* 
-#line {
-    width: 33vh;
-    height: 1px;
+
+ul {
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+    margin: 6px 0;
+}
+
+button {
+    background-color: rgba(88, 156, 88, 0.839);
+    color: white;
+    padding: 6px;
+    border: 0;
+    border-radius: 5px; 
+}
+
+button:hover {
+    background-color: rgb(167, 209, 167);
+}
+
+/* .quiz-button {
+    list-style-type: none
 } */
 
-#line::before {
-    content: "";
-    flex-grow: 1;
-    border-top: 1px solid black;
-    margin: 0 10px; /* Adjust margin as needed */
-  }
+#line {
+    width: 100%;
+    border-bottom: 1px solid;
+}
 
 #result, #line {
     display: block;
+}
+
+#center-finished {
+    display: flex;
+    flex-direction: column;
 }
 
 /* these are for highscores.html */
@@ -59,4 +92,8 @@ form * {
 
 .break {
     width: 10px;
+}
+
+button a, button a:visited {
+    color: white;
 }

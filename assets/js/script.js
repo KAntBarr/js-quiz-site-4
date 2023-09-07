@@ -73,7 +73,7 @@ function startCountDown() {
         }
     
     }, 1000);
-    return 50;
+    return 300;
 }
 
 startButton.addEventListener("click", function() {
@@ -96,17 +96,17 @@ options.addEventListener("click", function(event) {
         timer.textContent -= 5;
     }
     let clear = 0;
-    popupEl.style.display = 'flex';
     popupEl.style.cssText = "  \
     display: flex;\
-    align-items: center\
+    align-items: center;\
+    flex-direction: column;\
     ";
     resultEl.textContent = result;
     resultInterval = setInterval(function() {
         
         if(clear) {
             // Stops execution of action at set interval
-            popupEl.style.display = 'none';
+            // popupEl.style.display = 'none';
             clearInterval(resultInterval);
             console.log("clear");
         }

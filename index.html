@@ -22,12 +22,12 @@
 
     <section class="quiz">
         <div class="center">
-            <p id="question">Test</p>
+            <h1 id="question">Test</h1>
             <ul id="answers">
-                <li><button id="first-button">21</button></li>
-                <li><button id="second-button">21</button></li>
-                <li><button id="third-button">21</button></li>
-                <li><button id="fourth-button">21</button></li>
+                <li><button id="first-button" class="quiz-button">21</button></li>
+                <li><button id="second-button" class="quiz-button">21</button></li>
+                <li><button id="third-button" class="quiz-button">21</button></li>
+                <li><button id="fourth-button" class="quiz-button">21</button></li>
             </ul>
             <div class="popup">
                 <div id="line"></div>
@@ -37,13 +37,15 @@
     </section>
 
     <section class="finished">
-        <h1>All Done!</h1>
-        <p>Your score was: <span id="score"></span></p>
-        <form action="">
-            <p>Enter initials:</p>
-            <input type="text" id="input">
-            <button type="submit" id="submit">OK</button>
-        </form> 
+        <div id="center-finished">
+            <h1>All Done!</h1>
+            <p>Your score was: <span id="score"></span></p>
+            <form action="">
+                <p>Enter initials:</p>
+                <input type="text" id="input">
+                <button type="submit" id="submit">OK</button>
+            </form> 
+        </div>
     </section>
 
     <script src="./assets/js/script.js"></script>
