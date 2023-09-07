@@ -1,6 +1,7 @@
 const mainScreen = document.querySelector(".main");
 const quizScreen = document.querySelector(".quiz");
 const finishedScreen = document.querySelector(".finished");
+const centerFinishedEl = document.querySelector("#center-finished");
 const startButton = document.querySelector("#start-button");
 const options = document.querySelector("#answers");
 const timer = document.querySelector("#time");
@@ -11,28 +12,36 @@ const submitEl = document.querySelector("#submit");
 const popupEl = document.querySelector(".popup");
 const resultEl = document.querySelector("#result");
 
-const questions =  ["Test 1", "Test 2", "Test 3", "Test 4", "Test 5"];
+const questions =  [
+    "Javascript is an _______ language?",
+    "Which of the following keywords is used to define a variable in Javascript?",
+    "Which of the following methods is used to access HTML elements using Javascript?",
+    "Upon encountering empty statements, what does the Javascript Interpreter do?",
+    "Which of the following methods can be used to display data in some form using Javascript?"
+];
 let questionNum = 0;
 let score = 0;
 const answers = [
-["Answer 1a", "Answer 2a", "Answer 3a", "Answer 4a"],
-["Answer 1b", "Answer 2b", "Answer 3b", "Answer 4b"],
-["Answer 1c", "Answer 2c", "Answer 3c", "Answer 4c"],
-["Answer 1d", "Answer 2d", "Answer 3d", "Answer 4d"],
-["Answer 1e", "Answer 2e", "Answer 3e", "Answer 4e"]
+["Object-Based", "Procedural", "Object-Oriented", "None of the Above"],
+["var", "Both var and let", "let", "None of the Above"],
+["getElementById()", "getElementsByClassName()", "Both", "None of the Above"],
+["Ignores the statements", "Throws an error", "Gives a warning", "None of the Above"],
+["document.write()", "console.log()", "window.alert()", "All of the Above"]
 ]
 
 const answerKey = {
-    "Test 1": "Answer 3a",
-    "Test 2": "Answer 2b",
-    "Test 3": "Answer 3c",
-    "Test 4": "Answer 1d",
-    "Test 5": "Answer 4e"
+    "Javascript is an _______ language?": "Object-Oriented",
+    "Which of the following keywords is used to define a variable in Javascript?": "Both var and let",
+    "Which of the following methods is used to access HTML elements using Javascript?": "Both",
+    "Upon encountering empty statements, what does the Javascript Interpreter do?": "Ignores the statements",
+    "Which of the following methods can be used to display data in some form using Javascript?": "All of the Above"
 }
 
 function loadFinished() {
-    clearInterval(resultInterval);
+    // clearInterval(resultInterval);
     quizScreen.style.display = 'none';
+    // finishedScreen.appendChild(popupEl);
+    centerFinishedEl.appendChild(popupEl);
     finishedScreen.style.display = "flex";
     clearInterval(timerInterval);
 
@@ -98,15 +107,15 @@ options.addEventListener("click", function(event) {
     let clear = 0;
     popupEl.style.cssText = "  \
     display: flex;\
-    align-items: center;\
     flex-direction: column;\
+    opacity: 0.4\
     ";
     resultEl.textContent = result;
     resultInterval = setInterval(function() {
         
         if(clear) {
             // Stops execution of action at set interval
-            // popupEl.style.display = 'none';
+            popupEl.style.display = 'none';
             clearInterval(resultInterval);
             console.log("clear");
         }

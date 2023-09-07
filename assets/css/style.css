@@ -36,6 +36,7 @@ form * {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 500px;
 }
 
 ul {
@@ -59,22 +60,26 @@ button:hover {
     background-color: rgb(167, 209, 167);
 }
 
-/* .quiz-button {
-    list-style-type: none
-} */
+li button {
+    width: 180px;
+}
 
 #line {
     width: 100%;
     border-bottom: 1px solid;
 }
 
-#result, #line {
-    display: block;
+#result {
+    font-family: fantasy;
 }
 
 #center-finished {
     display: flex;
     flex-direction: column;
+}
+
+form {
+    margin-bottom: 5px;
 }
 
 /* these are for highscores.html */
